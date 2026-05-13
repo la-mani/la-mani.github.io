@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mani | ラ・マーニ</title>
+    <meta name="description" content="埼玉・さいたま市の完全プライベート隠れ家サロン「La Mani（ラ・マーニ）」。リンパマッサージ・ドライヘッドスパ・フットマッサージ。完全予約制・一対一の丁寧なケア。">
+    <meta property="og:title" content="La Mani | ラ・マーニ — 隠れ家プライベートサロン">
+    <meta property="og:description" content="埼玉・さいたま市の完全プライベート隠れ家サロン。リンパマッサージ・ドライヘッドスパ・フットマッサージ。完全予約制。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://la-mani.github.io/se-feliz-1.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ivory: #F8F3EC;
+            --cream: #FAF7F2;
+            --gold: #C9A96E;
+            --gold-light: #E5D4A8;
+            --gold-dark: #A07840;
+            --espresso: #2C1A10;
+            --brown: #5C3D28;
+            --taupe: #9E8B7D;
+            --warm-gray: #D4C9BE;
+            --text-dark: #2C1A10;
+            --text-mid: #6B4F3A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Serif JP', serif;
+            background-color: var(--ivory);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* ── NAVIGATION ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 22px 48px;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(248, 243, 236, 0.96);
+            backdrop-filter: blur(12px);
+            padding: 14px 48px;
+            box-shadow: 0 1px 24px rgba(44, 26, 16, 0.07);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: var(--ivory);
+            text-decoration: none;
+            transition: color 0.4s;
+        }
+
+        nav.scrolled .nav-logo { color: var(--espresso); }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: rgba(248, 243, 236, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+        nav.scrolled .nav-links a { color: var(--text-mid); }
+        nav.scrolled .nav-links a:hover { color: var(--gold-dark); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1px;
+            background: var(--ivory);
+            transition: all 0.3s;
+        }
+
+        nav.scrolled .hamburger span { background: var(--espresso); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(248, 243, 236, 0.98);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 44px;
+        }
+
+        .mobile-menu.open { display: flex; }
+
+        .mobile-menu a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 300;
+            letter-spacing: 0.18em;
+            color: var(--espresso);
+            text-decoration: none;
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            font-size: 1.3rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--espresso);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            height: 100vh;
+            min-height: 640px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #2E1A0E;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to bottom, rgba(44,26,16,0.52) 0%, rgba(44,26,16,0.28) 45%, rgba(60,36,20,0.55) 100%),
+                radial-gradient(ellipse 80% 60% at 25% 55%, rgba(92,61,40,0.5) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 78% 30%, rgba(201,169,110,0.12) 0%, transparent 60%);
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 3px,
+                    rgba(201,169,110,0.015) 3px, rgba(201,169,110,0.015) 4px);
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 28px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.55em;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.2s forwards;
+            margin-bottom: 28px;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.6rem, 10vw, 7.5rem);
+            font-weight: 300;
+            letter-spacing: 0.22em;
+            color: var(--ivory);
+            line-height: 1.1;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.4s forwards;
+            margin-bottom: 10px;
+        }
+
+        .hero-sub {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            font-weight: 200;
+            letter-spacing: 0.4em;
+            color: rgba(248,243,236,0.55);
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.58s forwards;
+            margin-bottom: 44px;
+        }
+
+        .hero-rule {
+            width: 56px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 0 auto 36px;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.72s forwards;
+        }
+
+        .hero-catch {
+            font-family: 'Noto Serif JP', serif;
+            font-size: clamp(0.82rem, 1.8vw, 1rem);
+            font-weight: 200;
+            letter-spacing: 0.28em;
+            color: rgba(229,212,168,0.85);
+            line-height: 2.2;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.88s forwards;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 1.3s forwards;
+        }
+
+        .hero-scroll span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.35em;
+            color: rgba(248,243,236,0.4);
+            text-transform: uppercase;
+        }
+
+        .scroll-bar {
+            width: 1px;
+            height: 44px;
+            background: linear-gradient(to bottom, rgba(201,169,110,0.7), transparent);
+            animation: scrollPulse 2.2s ease infinite;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.35; transform: scaleY(1); }
+            50%       { opacity: 1;    transform: scaleY(1.08); }
+        }
+
+        /* ── SECTIONS COMMON ── */
+        section { padding: 110px 28px; }
+
+        .section-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.55em;
+            color: var(--gold);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        .section-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--espresso);
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .section-heading-ja {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 0.78rem;
+            font-weight: 300;
+            letter-spacing: 0.28em;
+            color: var(--taupe);
+            display: block;
+            margin-bottom: 44px;
+        }
+
+        .gold-rule {
+            width: 48px;
+            height: 1px;
+            background: linear-gradient(to right, var(--gold), rgba(201,169,110,0.2));
+            margin-bottom: 52px;
+        }
+
+        /* ── ABOUT ── */
+        .about { background: var(--cream); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .about-panel {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(150deg, #4A2E1C 0%, #2C1A10 50%, #5C3D28 100%);
+            border-radius: 1px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-panel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 1px solid rgba(201,169,110,0.18);
+            box-shadow:
+                0 0 0 28px rgba(201,169,110,0.06),
+                0 0 0 56px rgba(201,169,110,0.035),
+                0 0 0 84px rgba(201,169,110,0.015);
+        }
+
+        .about-panel-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            color: rgba(201,169,110,0.35);
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-frame {
+            position: absolute;
+            top: 18px;
+            right: -18px;
+            bottom: -18px;
+            left: 18px;
+            border: 1px solid var(--gold);
+            opacity: 0.22;
+            z-index: -1;
+        }
+
+        .about-body p {
+            font-size: 0.87rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            line-height: 2.3;
+            margin-bottom: 22px;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .feature-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .feature span {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            letter-spacing: 0.1em;
+        }
+
+        /* ── GALLERY ── */
+        .gallery { background: var(--espresso); padding: 110px 28px; }
+
+        .gallery .section-eyebrow { color: rgba(201,169,110,0.75); }
+        .gallery .section-heading { color: var(--ivory); }
+        .gallery .section-heading-ja { color: rgba(248,243,236,0.4); }
+        .gallery .gold-rule {
+            background: linear-gradient(to right, rgba(201,169,110,0.7), transparent);
+            margin-bottom: 48px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 320px 240px;
+            gap: 8px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item:first-child { grid-column: span 2; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.65s ease, filter 0.65s ease;
+            filter: brightness(0.88) saturate(0.9);
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1) saturate(1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(201,169,110,0);
+            transition: border-color 0.4s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .gallery-item:hover::after { border-color: rgba(201,169,110,0.35); }
+
+        /* ── MENU ── */
+        .menu { background: var(--ivory); text-align: center; }
+
+        .menu .gold-rule { margin: 0 auto 52px; }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            max-width: 860px;
+            margin: 12px auto 0;
+            text-align: left;
+        }
+
+        .menu-card {
+            background: var(--cream);
+            border: 1px solid var(--warm-gray);
+            padding: 40px 36px 36px;
+            position: relative;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold) 40%, transparent);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 64px rgba(44,26,16,0.09);
+        }
+
+        .card-badge {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.55em;
+            color: var(--gold);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .card-name-en {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--espresso);
+            margin-bottom: 5px;
+        }
+
+        .card-name-ja {
+            font-size: 0.78rem;
+            font-weight: 300;
+            letter-spacing: 0.22em;
+            color: var(--taupe);
+            display: block;
+            margin-bottom: 24px;
+        }
+
+        .card-divider {
+            width: 28px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 0 20px;
+        }
+
+        .price-list {
+            list-style: none;
+            width: 100%;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--warm-gray);
+        }
+
+        .price-row:last-child { border-bottom: none; }
+
+        .price-duration {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--taupe);
+            letter-spacing: 0.12em;
+            flex: 1;
+        }
+
+        .price-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--espresso);
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .price-amount small {
+            font-size: 0.72rem;
+            color: var(--taupe);
+            letter-spacing: 0.08em;
+        }
+
+        .menu-note {
+            margin-top: 44px;
+            font-size: 0.76rem;
+            font-weight: 300;
+            color: var(--taupe);
+            letter-spacing: 0.1em;
+            line-height: 2;
+            text-align: center;
+        }
+
+        /* ── ACCESS ── */
+        .access { background: linear-gradient(to bottom, var(--cream), var(--ivory)); }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .info-block { margin-bottom: 44px; }
+
+        .info-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.67rem;
+            letter-spacing: 0.45em;
+            color: var(--gold);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .info-value {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--espresso);
+            letter-spacing: 0.12em;
+            line-height: 2;
+        }
+
+        .info-value strong { font-weight: 400; }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table tr {
+            border-bottom: 1px solid var(--warm-gray);
+        }
+
+        .hours-table tr:last-child { border-bottom: none; }
+
+        .hours-table td {
+            font-size: 0.84rem;
+            font-weight: 300;
+            color: var(--text-mid);
+            padding: 13px 0;
+            letter-spacing: 0.08em;
+        }
+
+        .hours-table td:last-child {
+            text-align: right;
+            color: var(--espresso);
+            font-weight: 400;
+        }
+
+        .map-box {
+            background: linear-gradient(140deg, #3D2B1F 0%, #2C1A10 100%);
+            height: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(201,169,110,0.08) 0%, transparent 60%);
+        }
+
+        .pin {
+            width: 28px;
+            height: 34px;
+            border: 1.5px solid rgba(201,169,110,0.5);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pin::after {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0; height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 7px solid rgba(201,169,110,0.5);
+        }
+
+        .map-label {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 0.76rem;
+            font-weight: 300;
+            color: rgba(201,169,110,0.5);
+            letter-spacing: 0.22em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── RESERVATION ── */
+        .reservation {
+            background: linear-gradient(135deg, #2C1A10 0%, #4A2E1C 45%, #3A2214 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reservation-orb {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            border: 1px solid rgba(201,169,110,0.08);
+            box-shadow:
+                0 0 0 100px rgba(201,169,110,0.03),
+                0 0 0 200px rgba(201,169,110,0.015);
+            pointer-events: none;
+        }
+
+        .reservation .section-eyebrow { color: rgba(201,169,110,0.75); }
+        .reservation .section-heading { color: var(--ivory); }
+        .reservation .section-heading-ja { color: rgba(248,243,236,0.4); }
+        .reservation .gold-rule {
+            background: linear-gradient(to right, rgba(201,169,110,0.7), transparent);
+            margin: 0 auto 52px;
+        }
+
+        .reservation-body {
+            font-size: 0.87rem;
+            font-weight: 200;
+            color: rgba(248,243,236,0.65);
+            letter-spacing: 0.22em;
+            line-height: 2.5;
+            margin-bottom: 52px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sms-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 56px;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+            color: var(--ivory);
+            font-family: 'Noto Serif JP', serif;
+            font-size: 0.84rem;
+            font-weight: 300;
+            letter-spacing: 0.28em;
+            text-decoration: none;
+            transition: background-position 0.45s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sms-btn::before {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(248,243,236,0.18);
+            pointer-events: none;
+        }
+
+        .sms-btn:hover {
+            background-position: 0 0;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(160,120,64,0.3);
+        }
+
+        .msg-icon {
+            width: 18px;
+            height: 14px;
+            border: 1.5px solid var(--ivory);
+            border-radius: 2px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .msg-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 4px;
+            width: 0; height: 0;
+            border-left: 4px solid transparent;
+            border-top: 5px solid var(--ivory);
+        }
+
+        .tel-line {
+            margin-top: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            color: rgba(201,169,110,0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .res-note {
+            margin-top: 44px;
+            font-size: 0.7rem;
+            font-weight: 200;
+            color: rgba(248,243,236,0.28);
+            letter-spacing: 0.15em;
+            line-height: 2.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--espresso);
+            padding: 52px 28px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            color: var(--ivory);
+        }
+
+        .footer-ja {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 0.68rem;
+            font-weight: 200;
+            letter-spacing: 0.3em;
+            color: var(--taupe);
+            display: block;
+            margin: 6px 0 22px;
+        }
+
+        .footer-rule {
+            width: 36px;
+            height: 1px;
+            background: rgba(201,169,110,0.35);
+            margin: 0 auto 22px;
+        }
+
+        .footer-copy {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.68rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: rgba(248,243,236,0.2);
+        }
+
+        /* ── SCROLL ANIMATION ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.85s ease, transform 0.85s ease;
+        }
+
+        .reveal.d1 { transition-delay: 0.1s; }
+        .reveal.d2 { transition-delay: 0.22s; }
+        .reveal.d3 { transition-delay: 0.36s; }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 820px) {
+            nav { padding: 18px 22px; }
+            nav.scrolled { padding: 13px 22px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            section { padding: 80px 22px; }
+
+            .about-grid,
+            .access-grid,
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            /* スマホはテキストを先に表示 */
+            .about-visual { order: 2; height: 300px; }
+            .about-body   { order: 1; }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 200px 160px 160px;
+            }
+
+            .gallery-item:first-child { grid-column: span 2; }
+
+            .gallery-item:nth-child(3),
+            .gallery-item:nth-child(4),
+            .gallery-item:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            .map-box { height: 240px; }
+
+            /* メニューカードのパディングを詰める */
+            .menu-card { padding: 28px 22px 24px; }
+
+            /* 料金ラベルが長い場合に折り返す */
+            .price-row { flex-wrap: wrap; gap: 4px; }
+            .price-duration { min-width: 120px; }
+
+            .sms-btn {
+                padding: 18px 40px;
+                font-size: 0.8rem;
+            }
+
+            .reservation-orb {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { letter-spacing: 0.12em; }
+            .hero-catch { letter-spacing: 0.16em; font-size: 0.78rem; }
+            .about-visual { height: 240px; }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 200px);
+            }
+
+            .gallery-item:first-child { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">La Mani</a>
+        <ul class="nav-links">
+            <li><a href="#about">サロンについて</a></li>
+            <li><a href="#menu">料金メニュー</a></li>
+            <li><a href="#access">アクセス</a></li>
+            <li><a href="#reservation">ご予約</a></li>
+        </ul>
+        <button class="hamburger" id="hbg" aria-label="メニュー">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mm">
+    <button class="mobile-close" id="mc">✕</button>
+    <a href="#about"       onclick="closeMM()">サロンについて</a>
+    <a href="#menu"        onclick="closeMM()">料金メニュー</a>
+    <a href="#access"      onclick="closeMM()">アクセス</a>
+    <a href="#reservation" onclick="closeMM()">ご予約</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+        <span class="hero-eyebrow">Hidden Salon · Saitama</span>
+        <h1 class="hero-title">La Mani</h1>
+        <p class="hero-sub">ラ・マーニ</p>
+        <div class="hero-rule"></div>
+        <p class="hero-catch">日常を忘れる、あなただけの隠れ家サロン</p>
+    </div>
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-bar"></div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div class="about-visual reveal">
+                <div class="about-panel">
+                    <span class="about-panel-text">La Mani</span>
+                </div>
+                <div class="about-frame"></div>
+            </div>
+            <div class="about-body">
+                <span class="section-eyebrow reveal">About</span>
+                <h2 class="section-heading reveal d1">隠れ家という<br>贅沢</h2>
+                <span class="section-heading-ja reveal d1">A Sanctuary for You Alone</span>
+                <div class="gold-rule reveal d2"></div>
+                <p class="reveal d2">
+                    喧噪から離れた静かな空間で、心と体をほぐす贅沢なひとときを。<br>
+                    ラ・マーニは、完全プライベートの隠れ家サロンです。
+                </p>
+                <p class="reveal d2">
+                    「手（マーニ）」が紡ぐ温もりで、日常の疲れを丁寧に解きほぐします。<br>
+                    あなただけのために整えられた空間で、本当の寛ぎをご体験ください。
+                </p>
+                <div class="features reveal d3">
+                    <div class="feature">
+                        <div class="feature-dot"></div>
+                        <span>完全予約制・プライベート空間</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-dot"></div>
+                        <span>一対一の丁寧なハンドケア</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-dot"></div>
+                        <span>埼玉・さいたま市の隠れ家サロン</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">Gallery</span>
+        <h2 class="section-heading reveal d1">サロンの空間</h2>
+        <span class="section-heading-ja reveal d1">Our Space</span>
+        <div class="gold-rule reveal d2"></div>
+
+        <div class="gallery-grid reveal d2">
+            <div class="gallery-item">
+                <img src="./se-feliz-1.webp" alt="サロン内観">
+            </div>
+            <div class="gallery-item">
+                <img src="./room-plan-2.webp" alt="施術ルーム">
+            </div>
+            <div class="gallery-item">
+                <img src="./se-feliz.webp" alt="サロン雰囲気">
+            </div>
+            <div class="gallery-item">
+                <img src="./s6000060955_05.webp" alt="サロン詳細">
+            </div>
+            <div class="gallery-item">
+                <img src="./images.jpg" alt="サロンイメージ">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">Menu</span>
+        <h2 class="section-heading reveal d1">料金メニュー</h2>
+        <span class="section-heading-ja reveal d1">Course Menu</span>
+        <div class="gold-rule reveal d2"></div>
+
+        <div class="menu-grid">
+
+            <!-- リンパマッサージ -->
+            <div class="menu-card reveal d1">
+                <span class="card-badge">Lymphatic Massage</span>
+                <p class="card-name-en">Lymph</p>
+                <span class="card-name-ja">リンパマッサージ</span>
+                <div class="card-divider"></div>
+                <ul class="price-list">
+                    <li class="price-row">
+                        <span class="price-duration">60分</span>
+                        <span class="price-amount">¥6,000 <small>（税込）</small></span>
+                    </li>
+                    <li class="price-row">
+                        <span class="price-duration">120分</span>
+                        <span class="price-amount">¥11,000 <small>（税込）</small></span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ドライヘッドスパ -->
+            <div class="menu-card reveal d2">
+                <span class="card-badge">Dry Head Spa</span>
+                <p class="card-name-en">Head Spa</p>
+                <span class="card-name-ja">ドライヘッドスパ</span>
+                <div class="card-divider"></div>
+                <ul class="price-list">
+                    <li class="price-row">
+                        <span class="price-duration">30分</span>
+                        <span class="price-amount">¥4,400 <small>（税込）</small></span>
+                    </li>
+                    <li class="price-row">
+                        <span class="price-duration">45分</span>
+                        <span class="price-amount">¥6,050 <small>（税込）</small></span>
+                    </li>
+                    <li class="price-row">
+                        <span class="price-duration">60分</span>
+                        <span class="price-amount">¥7,700 <small>（税込）</small></span>
+                    </li>
+                    <li class="price-row">
+                        <span class="price-duration">75分</span>
+                        <span class="price-amount">¥9,350 <small>（税込）</small></span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- フットマッサージ -->
+            <div class="menu-card reveal d1">
+                <span class="card-badge">Foot Massage</span>
+                <p class="card-name-en">Foot</p>
+                <span class="card-name-ja">フットマッサージ</span>
+                <div class="card-divider"></div>
+                <ul class="price-list">
+                    <li class="price-row">
+                        <span class="price-duration">足つぼ・リフレ 30分</span>
+                        <span class="price-amount">¥3,000 <small>（税込）</small></span>
+                    </li>
+                    <li class="price-row">
+                        <span class="price-duration">足つぼ・リフレ 60分</span>
+                        <span class="price-amount">¥5,000 <small>（税込）</small></span>
+                    </li>
+                    <li class="price-row">
+                        <span class="price-duration">オイルフット 60分</span>
+                        <span class="price-amount">¥6,500 <small>（税込）</small></span>
+                    </li>
+                    <li class="price-row">
+                        <span class="price-duration">フット＋全身 90分</span>
+                        <span class="price-amount">¥6,900 <small>（税込）</small></span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- スタンダードコース -->
+            <div class="menu-card reveal d2">
+                <span class="card-badge">Standard Course</span>
+                <p class="card-name-en">Standard</p>
+                <span class="card-name-ja">スタンダードコース</span>
+                <div class="card-divider"></div>
+                <ul class="price-list">
+                    <li class="price-row">
+                        <span class="price-duration">60分</span>
+                        <span class="price-amount">¥6,000 <small>（税込）</small></span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="menu-note reveal d3">
+            ※ 料金はすべて税込表示です。<br>
+            ※ メニューの詳細はSMSにてお気軽にお問い合わせください。
+        </p>
+    </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+    <div class="section-inner">
+        <div class="access-grid">
+            <div>
+                <span class="section-eyebrow reveal">Access</span>
+                <h2 class="section-heading reveal d1">アクセス・<br>営業時間</h2>
+                <span class="section-heading-ja reveal d1">Location & Hours</span>
+                <div class="gold-rule reveal d2"></div>
+
+                <div class="info-block reveal d2">
+                    <span class="info-label">Location</span>
+                    <p class="info-value">
+                        埼玉県さいたま市<br>
+                        <strong>中央区 9丁目</strong>
+                    </p>
+                </div>
+
+                <div class="info-block reveal d2">
+                    <span class="info-label">Hours & Booking</span>
+                    <table class="hours-table">
+                        <tr>
+                            <td>営業時間</td>
+                            <td>13:00 〜 19:00</td>
+                        </tr>
+                        <tr>
+                            <td>定休日</td>
+                            <td>不定休（要確認）</td>
+                        </tr>
+                        <tr>
+                            <td>受付方法</td>
+                            <td>完全予約制</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="reveal d2">
+                <div class="map-box">
+                    <div class="pin"></div>
+                    <p class="map-label">さいたま市中央区 9丁目</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reservation" id="reservation">
+    <div class="reservation-orb"></div>
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">Reservation</span>
+        <h2 class="section-heading reveal d1">ご予約</h2>
+        <span class="section-heading-ja reveal d1">SMS Booking</span>
+        <div class="gold-rule reveal d2"></div>
+
+        <p class="reservation-body reveal d2">
+            ご予約はSMSにて承ります。<br>
+            ご希望の日時・コース名をメッセージにてお送りください。<br>
+            確認後、折り返しご連絡いたします。
+        </p>
+
+        <a href="sms:09046146931" class="sms-btn reveal d3">
+            <div class="msg-icon"></div>
+            SMSで予約する
+        </a>
+
+        <p class="tel-line reveal d3">090 — 4614 — 6931</p>
+
+        <p class="res-note reveal">
+            ※ 電話での受付はしておりません。SMSのみの対応となります。<br>
+            ※ 返信まで数時間かかる場合がございます。予めご了承ください。
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p class="footer-logo">La Mani</p>
+    <span class="footer-ja">ラ・マーニ</span>
+    <div class="footer-rule"></div>
+    <p class="footer-copy">&copy; 2026 La Mani. All rights reserved.</p>
+</footer>
+
+<script>
+    // ── Navbar scroll ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Mobile menu ──
+    document.getElementById('hbg').addEventListener('click', () =>
+        document.getElementById('mm').classList.add('open'));
+    document.getElementById('mc').addEventListener('click', closeMM);
+    function closeMM() {
+        document.getElementById('mm').classList.remove('open');
+    }
+
+    // ── Scroll reveal ──
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
